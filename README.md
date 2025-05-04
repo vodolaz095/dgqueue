@@ -61,7 +61,7 @@ See full example at [example.go](example%2Fexample.go)
 
 ```go
 
-handler := dgqueue.New() // import "github.com/vodolaz095/dgqueue"
+handler := dgqueue.New[string]() // import "github.com/vodolaz095/dgqueue"
 
 // Publish tasks
 something := "task" // payload can be anything - number, string, buffer, struct...
