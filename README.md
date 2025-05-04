@@ -28,8 +28,7 @@ Make queue handler:
 ```go
 handler := dgqueue.New[string]() // import "github.com/vodolaz095/dgqueue"
 
-// payload can be anything - number, string, buffer, struct...
-something := "task"
+something := "task" // payload can be a string only
 
 // Create tasks to be executed in future
 handler.ExecuteAt(something, time.Now().Add(time.Minute))
@@ -64,7 +63,7 @@ See full example at [example.go](example%2Fexample.go)
 handler := dgqueue.New[string]() // import "github.com/vodolaz095/dgqueue"
 
 // Publish tasks
-something := "task" // payload can be anything - number, string, buffer, struct...
+something := "task" // payload can be a string only
 handler.ExecuteAt(something, time.Now().Add(time.Minute))
 handler.ExecuteAfter(something, time.Minute)
 
