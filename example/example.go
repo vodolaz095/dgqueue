@@ -40,7 +40,7 @@ func main() {
 	tasks := handler.Dump()
 	for i := range tasks {
 		fmt.Printf("Task %v: %T `%s` to be executed in %s from now.\n",
-			i, tasks[i].Payload, tasks[i].Payload.String(), tasks[i].ExecuteAt.Sub(time.Now()).String(),
+			i, tasks[i].Payload, tasks[i].Payload.Suffix, time.Since(tasks[i].ExecuteAt).String(),
 		)
 	}
 
@@ -69,7 +69,6 @@ func main() {
 							task.ExecuteAt.Sub(t).String(),
 						)
 					}
-					break
 				case <-ctx.Done():
 					fmt.Printf("Closing worker %v, there are %v tasks in queue\n", workerNumber, handler.Len())
 					wg.Done()
